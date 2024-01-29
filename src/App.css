@@ -4,7 +4,9 @@
 }
 .App {
   text-align: center;
-  overflow: visible;
+  overflow: auto;
+  font-family: "Boska", serif;
+  font-size: medium;
 }
 
 .user {
@@ -13,9 +15,12 @@
   @apply rounded-full items-center;
 }
 .check {
-  @apply p-1 border-none;
+  @apply outline-none bg-white;
 }
-
+.check::placeholder {
+  color: gray;
+  font-weight: 800;
+}
 .display {
   color: white;
   font-size: 2rem;
@@ -27,7 +32,7 @@
   flex-direction: column;
   align-items: center;
   height: 18rem;
-  background-color: rgb(255, 255, 255, 0.4);
+  background-color: rgb(0, 0, 0, 0.6);
   gap: 5px;
   border-radius: 5px;
 }
@@ -36,55 +41,30 @@
   cursor: pointer;
 }
 .gridStyle {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
+  @apply w-[100%] h-[100%] grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-5  place-items-center;
 }
 .git {
   align-items: center;
 }
-.coloring {
-  color: black;
-}
-.home {
-  display: flex;
-  justify-content: space-between;
+.coloring,
+.userDetails {
   width: 100%;
-  height: 90vh;
-  background-color: rgb(255, 255, 255, 0.2);
-}
-.users {
-  background-color: brown;
-  border-radius: 10px 0px 10px 0px;
-  padding: 0.5rem;
-  width: 6rem;
-}
-.nav {
-  background-color: rgb(255, 255, 255, 0.8);
-  padding: 1.2rem;
-  width: 100%;
-}
-.nav > i:hover {
-  transform: scale(1.2);
-}
-.details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3rem;
-  background-image: url("https://images.unsplash.com/photo-1663138763894-0cc4a5421dab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
-  opacity: 0.7ya;
-  background-repeat: no-repeat;
+  height: 100vh;
+  background-image: url("./assets/github.jpg");
   background-size: cover;
   background-position: center;
-  width: 100vw;
-  height: 70vh;
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255, 0.2);
-  color: white;
-  gap: 15px;
+  background-attachment: fixed;
 }
+
+.users,
+.overlay form,
+.check {
+  border-radius: 10px 0px 10px 0px;
+}
+.overlay {
+  background-color: rgb(0, 0, 0, 0.8);
+}
+
 .details img {
   width: 13rem;
   border-radius: 50%;
@@ -96,5 +76,6 @@
 .userDetails {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }

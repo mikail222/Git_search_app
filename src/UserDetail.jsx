@@ -12,8 +12,8 @@ const UserDetail = ({ baseUrl, searchResult }) => {
   console.log(userId);
 
   return (
-    <div style={{ color: "white" }} className="userDetails">
-      <div>
+    <div style={{ color: "white" }} className="userDetails ">
+      <div className="flex flex-col justify-center items-center w-[100%] h-[100vh] overlay ">
         {userId?.map((user) => (
           <div key={user.id} className="details">
             <img src={user.avatar_url} alt="user" className="object-cover" />

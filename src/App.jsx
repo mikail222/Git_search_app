@@ -6,7 +6,6 @@ import Form from "./Form";
 import Home from "./Home";
 import { Routes, Route } from "react-router";
 import UserDetail from "./UserDetail";
-import Nav from "./Nav";
 
 function App() {
   const [searchResult, setSearchResult] = useState([]);
@@ -30,7 +29,6 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
       <div className="wrappDiv">
         <Routes>
           <Route

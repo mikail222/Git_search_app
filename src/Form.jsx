@@ -1,24 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Form = ({ searchResult }) => {
+  const navigate = useNavigate();
   return (
-    <div className="mt-6">
+    <div className="w-[100%] h-[100%] flex flex-col justify-center items-center">
       <h2 className=" display">Meet users</h2>
       <div className="gridStyle">
         {searchResult.map((user) => (
-          <Link key={user.id} to={`UserDetail/${user.id}`}>
-            <div className="container" style={{ width: "14rem" }}>
+          <div key={user.id}>
+            <div
+              className="container w-[14rem]"
+              onClick={() => navigate(`UserDetail/${user.id}`)}
+            >
               <img src={user.avatar_url} alt="avarta" className="user" />
-              <i className="mt-4">
-                <i>user name</i>
-                <br />
-                <i style={{ fontSize: "1.5rem", lineHeight: "3rem" }}>
-                  {user.login}
-                </i>
-              </i>
+              <p className="text-[1.5rem] leading-[3rem] text-white">
+                {user.login}
+              </p>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>

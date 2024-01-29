@@ -1,49 +1,46 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = ({ handleSubmit, searchResult }) => {
+  const navigate = useNavigate();
+  console.log(searchResult.length);
   return (
-    <div className="home">
-      <aside style={{ width: "50%" }} className="coloring">
-        <div></div>
-        <p>welcome...!</p>
-        <h1 style={{ color: "white" }}>Git Search</h1>
-        <form onSubmit={handleSubmit}>
+    <div className="coloring ">
+      <div className="flex flex-col justify-center items-center w-[100%] h-[100vh] overlay ">
+        <p className="text-[2.6rem] lg:text-[3.5rem] tracking-[3px] text-white my-[2%] font-[Britney] font-semibold leading-[3rem]">
+          Git Quick Search
+        </p>
+        <form
+          onSubmit={handleSubmit}
+          className="lg:w-[50%] bg-white flex flex-row justify-between items-center p-[6px]  rounded-[10px] px-[2%]"
+        >
           <input
-            type="search"
-            placeholder="search..."
-            className="check"
+            placeholder="Meet Mentors and others on Github here..."
+            className="check w-[100%]"
             name="query"
-            style={{ width: "60%", padding: "0.70rem", borderRadius: "15px" }}
           />
+          <button
+            type="button"
+            onClick={() => navigate("Form")}
+            className="users w-[6rem] bg-[brown] p-[0.5rem] outline-none text-white"
+          >
+            View All
+          </button>
         </form>
-        {searchResult < 10 ? (
-          <i>Specify further</i>
+        {searchResult.length > 10 ? (
+          <i className="text-white">
+            Too many matches please specify further or click search button
+          </i>
         ) : (
           searchResult.map((user) => (
             <Link key={user.id} to={`UserDetail/${user.id}`}>
-              <ul style={{ fontSize: "1.5rem", lineHeight: "3rem" }}>
+              <ul className="text-[1.5rem] leading-[3rem] flex flex-col justify-start items-start lg:w-[16vw]">
                 <li>{user.login}</li>
               </ul>
             </Link>
           ))
         )}
-        <Link to="Form">
-          <button
-            style={{ display: "flex", justifyContent: "flex-start" }}
-            className="users"
-          >
-            Git Users
-          </button>
-        </Link>
-      </aside>
-      <aside style={{ width: "50%" }}>
-        <img
-          src="https://images.unsplash.com/photo-1542546068979-b6affb46ea8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHByb2dyYW1tZXIlMjB3b3JzcGFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-          alt="workspace"
-          style={{ width: "100%", height: "90vh" }}
-        />
-      </aside>
+      </div>
     </div>
   );
 };
