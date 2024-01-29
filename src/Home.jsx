@@ -6,13 +6,13 @@ const Home = ({ handleSubmit, searchResult }) => {
   console.log(searchResult.length);
   return (
     <div className="coloring ">
-      <div className="flex flex-col justify-center items-center w-[100%] h-[100vh] overlay ">
-        <p className="text-[2.6rem] lg:text-[3.5rem] tracking-[3px] text-white my-[2%] font-[Britney] font-semibold leading-[3rem]">
+      <div className="flex flex-col justify-center items-center w-[100%] h-[100vh] overlay">
+        <p className="text-[2.6rem] lg:text-[3.5rem] tracking-[3px] my-[5%] text-white lg:my-[2%] font-[Britney] font-semibold leading-[3rem]">
           Git Quick Search
         </p>
         <form
           onSubmit={handleSubmit}
-          className="w-[100%] lg:w-[50%] bg-white flex flex-row justify-between items-center p-[6px]  rounded-[10px] px-[2%]"
+          className="w-[95%] lg:w-[50%] bg-white flex flex-row justify-between items-center p-[6px]  rounded-[10px]"
         >
           <input
             placeholder="Meet Github users here..."
