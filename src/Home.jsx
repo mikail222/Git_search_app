@@ -19,13 +19,22 @@ const Home = ({ handleSubmit, searchResult }) => {
             className="check w-[100%]"
             name="query"
           />
-          <button
-            type="button"
-            onClick={() => navigate("Form")}
-            className="users w-[6rem] bg-[brown] p-[0.5rem] outline-none text-white"
-          >
-            View All
-          </button>
+          {searchResult.length ? (
+            <button
+              type="button"
+              onClick={() => navigate("Form")}
+              className="users w-[6rem] bg-[brown] p-[0.5rem] outline-none text-white"
+            >
+              View All
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="users w-[6rem] bg-[brown] p-[0.5rem] outline-none text-white"
+            >
+              Search
+            </button>
+          )}
         </form>
         {searchResult.length > 10 ? (
           <i className="text-white">
